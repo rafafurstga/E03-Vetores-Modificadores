@@ -14,6 +14,12 @@ public class Main {
         conta.numero = 3737;
         conta.limite =9999999.0;
         conta.imprimir();
+        System.out.println(' ');
+        conta.saca(1000);
+        conta.deposita(500);
+        conta.imprimir();
+        System.out.println(' ');
+        conta.extrato();
 
     }
 }

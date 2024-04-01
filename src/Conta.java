@@ -25,7 +25,7 @@ public class Conta {
 
     void deposita (double quantidade){
         this.saldo += quantidade;
-        operacoes[indice]= new Operacao('v',quantidade);
+        operacoes[indice]= new Operacao('d',quantidade);
         indice++;
     }
 
@@ -42,6 +42,8 @@ public class Conta {
     }
 
     void imprimir(){
+        System.out.println("Informações");
+        System.out.println("**********************************");
         System.out.println("Nome: " + this.dono.Nome);
         System.out.println("CPF: " + this.dono.CPF);
         System.out.println("Endereço: " + this.dono.Endereco);
@@ -53,10 +55,14 @@ public class Conta {
     }
 
     void extrato(){
+        System.out.println("Extrato");
+        System.out.println("**********************************");
         for(int i=0;i<indice;i++){
-            System.out.print(operacoes[0].data);
-            System.out.print(operacoes[0].tipo);
-            System.out.println(operacoes[0].valor);
+            System.out.print(operacoes[i].data);
+            System.out.print(' ');
+            System.out.print(operacoes[i].tipo);
+            System.out.print(' ');
+            System.out.println(operacoes[i].valor);
 
         }
     }

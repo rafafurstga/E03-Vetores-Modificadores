@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Scanner;
 
 public class Conta {
 
@@ -65,6 +66,17 @@ public class Conta {
             System.out.println(operacoes[i].valor);
 
         }
+    }
+
+    void menu_conta(){
+        System.out.println("Menu da Conta");
+        System.out.println("**************************************************");
+        System.out.println("(1) Depositar");
+        System.out.println("(2) Sacar");
+        System.out.println("(3) Transferir");
+        System.out.println("(4) Informações da conta");
+        System.out.println("(5) Extrato");
+        System.out.println("(0) Sair");
     }
     public Conta(){
         indice = 0;

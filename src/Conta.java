@@ -1,24 +1,54 @@
 import java.util.Date;
-import java.util.Scanner;
 
 public class Conta {
 
     //atributos
-    int numero;
-    Cliente dono;
-    double saldo;
-    double limite;
+    private int totalContas=0;
+    private int numero;
+    private Cliente dono;
+    private double saldo = 0;
+    private double limite;
     Operacao[] operacoes = new Operacao[1000];
-    int indice;
+    private int indice;
 
     //metodos
+
+
+    public void setDono(Cliente dono) {
+        this.dono = dono;
+    }
+
+    public Cliente getDono() {
+        return this.dono;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public int getNumero() {
+        return this.numero;
+    }
+
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+
+    public double getLimite() {
+        return this.limite;
+    }
+
+    public double getSaldo() {
+        return this.saldo;
+    }
+
     boolean saca (double valor){
         if (this.saldo < valor){
             return false;
         }
         else {
             this.saldo = this.saldo - valor;
-            operacoes[indice]= new Operacao('s',valor);
+            operacoes[indice]= new Operacao('s',valor);totalContas++;
             indice++;
             return true;
         }
@@ -59,27 +89,17 @@ public class Conta {
         System.out.println("Extrato");
         System.out.println("**********************************");
         for(int i=0;i<indice;i++){
-            System.out.print(operacoes[i].data);
+            System.out.print(operacoes[i].getDate());
             System.out.print(' ');
-            System.out.print(operacoes[i].tipo);
+            System.out.print(operacoes[i].getTipo());
             System.out.print(' ');
-            System.out.println(operacoes[i].valor);
+            System.out.println(operacoes[i].getValor());
 
         }
     }
-
-    void menu_conta(){
-        System.out.println("Menu da Conta");
-        System.out.println("**************************************************");
-        System.out.println("(1) Depositar");
-        System.out.println("(2) Sacar");
-        System.out.println("(3) Transferir");
-        System.out.println("(4) Informações da conta");
-        System.out.println("(5) Extrato");
-        System.out.println("(0) Sair");
-    }
     public Conta(){
         indice = 0;
+        totalContas++;
     }
 
 }
